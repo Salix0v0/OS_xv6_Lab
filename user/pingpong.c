@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 #include <kernel/types.h>
 #include <user/user.h>
 
@@ -54,4 +55,33 @@ int main(){
     //等待进程子退出
     wait(0);
 	exit(0);
+=======
+#include "kernel/types.h"
+#include "user/user.h"
+
+int main()
+{
+	int p1[2],p2[2];
+	char a[1]={'a'};
+	pipe(p1);
+	pipe(p2);
+	if(fork()==0)//child
+	{
+		close(p1[1]);
+        close(p2[0]);
+		read(p1[0], a, 1);
+		printf("%d: received ping\n", getpid());
+		write(p2[1],a,1);
+		exit(0);
+	}
+	else//parent
+	{
+		close(p1[0]);
+        close(p2[1]);
+		write(p1[1], a, 1);
+		read(p2[0],a,1);
+		printf("%d: received pong\n", getpid());
+		exit(0);
+	}
+>>>>>>> Stashed changes
 }

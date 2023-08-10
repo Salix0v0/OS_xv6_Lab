@@ -193,8 +193,13 @@ UPROGS=\
 	$U/_grind\
 	$U/_wc\
 	$U/_zombie\
+<<<<<<< Updated upstream
 	$U/_pingpong\
 	$U/_sleep\
+=======
+	$U/_sleep\
+	$U/_pingpong\
+>>>>>>> Stashed changes
 	$U/_primes\
 	$U/_find\
 	$U/_xargs\
